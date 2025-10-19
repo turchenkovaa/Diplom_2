@@ -7,4 +7,4 @@ __pycache__
 /helpers/__pycache__
 /tests/__pycache__
 .DS_Store
-__pycache__/*.pyc
+*.pyc
