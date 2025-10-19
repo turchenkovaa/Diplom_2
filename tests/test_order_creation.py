@@ -30,6 +30,9 @@ class TestCreateOrder:
             
         with allure.step("Проверяем ошибку авторизации"):
             assert response.status_code == 401, f"Должна быть ошибка 401, получена {response.status_code}"
+            response_data = response.json()
+            assert "message" in response_data, "В ответе должно быть сообщение об ошибке"
+            assert "authorization" in response_data["message"].lower(), "Сообщение должно указывать на проблему авторизации"
 
 
     @allure.title("Создание заказа без ингредиентов")
